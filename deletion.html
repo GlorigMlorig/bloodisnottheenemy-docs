@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion & Data Purge // Blood Is Not The Enemy</title>
+  <meta name="description" content="Self-serve account deletion and data purge instructions for Blood Is Not The Enemy. Compliant with Apple Guideline 5.1.1(v) and Google Play policy.">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <style>
+    :root {
+      --bg: #040507;
+      --card-bg: rgba(8, 11, 15, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --amber: #d97706;
+      --amber-light: #fbbf24;
+      --emerald: #34d399;
+      --rose: #f43f5e;
+      --purple: #c084fc;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      background-image: radial-gradient(circle at 50% 10%, rgba(244, 63, 94, 0.08) 0%, rgba(159, 18, 57, 0.04) 40%, rgba(4, 5, 7, 0) 75%);
+      background-attachment: fixed;
+    }
+    .container {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      color: var(--amber);
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .badge-rose {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    h1 {
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--amber-light);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+    p, li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    ol, ul {
+      margin-left: 1.25rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .steps-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+    .warning-box {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .warning-box p {
+      color: #fecdd3;
+    }
+    .email-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      background: var(--rose);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .email-button:hover {
+      background: #e11d48;
+      transform: translateY(-2px);
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="top-nav">
+        <a href="index.html" class="back-link">&larr; Return to Portal</a>
+        <div class="badge-rose">
+          <span>Data Erasure &bull; Apple 5.1.1 &bull; Google Play</span>
+        </div>
+      </div>
+
+      <h1>Account & Telemetry Deletion Portal</h1>
+      <p class="subtitle">
+        In accordance with Apple App Store Review Guideline 5.1.1(v), Google Play Account Deletion mandates, and GDPR/CCPA privacy rights, all users possess the unconditional right to erase their account, partner bonds, and cycle telemetry.
+      </p>
+
+      <h2>Method 1: Instant In-App Self-Serve Purge (Recommended)</h2>
+      <p>
+        If you have the <strong>Blood Is Not The Enemy</strong> application installed on iOS, Android, or Web:
+      </p>
+      <div class="steps-box">
+        <ol>
+          <li>Open <strong>Blood Is Not The Enemy</strong> on your device.</li>
+          <li>Tap the <strong>Settings</strong> icon (Gear icon in the top header).</li>
+          <li>Scroll down to the <strong>Permanent Telemetry Purge</strong> section.</li>
+          <li>Tap the red action button: <strong>"Purge All Data & Terminate Account"</strong>.</li>
+          <li>Confirm the confirmation prompt.</li>
+        </ol>
+      </div>
+
+      <div class="warning-box">
+        <p>
+          <strong>What Is Erased Immediately:</strong>
+        </p>
+        <ul style="margin-top: 0.4rem; list-style-type: square; color: #fecdd3;">
+          <li>All cloud-stored menstrual telemetry, cycle lengths, and historical period start dates.</li>
+          <li>All comfort flares, distress signals, and responder notes.</li>
+          <li>All observation notes, pain tags, and personal partner aliases.</li>
+          <li>The cryptographic bond linking Hearth and Flamebearer.</li>
+          <li>Device push notification registration tokens.</li>
+          <li>The AWS Cognito authentication user record and local sandbox cache.</li>
+        </ul>
+      </div>
+
+      <h2>Method 2: External Web Deletion Request (If App Is Uninstalled)</h2>
+      <p>
+        If you have uninstalled the application or can no longer access your device, you can request complete erasure of your account and all associated cloud telemetry by emailing our engineering team:
+      </p>
+
+      <div class="steps-box">
+        <p><strong>Send an email with the following details:</strong></p>
+        <ul>
+          <li><strong>To:</strong> privacy@geysimonyan.com</li>
+          <li><strong>Subject:</strong> Account Deletion Request - Blood Is Not The Enemy</li>
+          <li><strong>Body:</strong> The email address associated with your account or partner bond.</li>
+        </ul>
+        <a href="mailto:privacy@geysimonyan.com?subject=Account%20Deletion%20Request%20-%20Blood%20Is%20Not%20The%20Enemy&body=Please%20delete%20my%20account%20and%20all%20associated%20telemetry%20for%20email%20address:%20" class="email-button">
+          Email Deletion Request &rarr;
+        </a>
+      </div>
+
+      <h2>Retention Period & Verification</h2>
+      <p>
+        • <strong>In-App Purge:</strong> Executed in real-time. Zero delay. Records are eradicated from DynamoDB immediately.<br>
+        • <strong>Manual Web Requests:</strong> Processed and permanently expunged within <strong>48 hours</strong> of verification. Zero residual backups or archived telemetry are retained.
+      </p>
+
+      <div class="footer">
+        <div>Blood Is Not The Enemy &bull; Account & Data Deletion Portal</div>
+        <div>Bear the flame. Guard the hearth. 🖤</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Is Not The Enemy // The Sanctuary</title>
+  <meta name="description" content="Atmospheric cycle telemetry, comfort flares, and gothic partner care. No pastel clichés. No corporate fluff.">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <style>
+    :root {
+      --bg: #040507;
+      --card-bg: rgba(8, 11, 15, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --amber: #d97706;
+      --amber-light: #fbbf24;
+      --emerald: #34d399;
+      --rose: #f43f5e;
+      --purple: #c084fc;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      background-image: radial-gradient(circle at 50% 15%, rgba(217, 119, 6, 0.12) 0%, rgba(159, 18, 57, 0.06) 40%, rgba(4, 5, 7, 0) 75%);
+      background-attachment: fixed;
+    }
+    .container {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+    }
+    .emblem-wrapper {
+      position: relative;
+      width: 5.5rem;
+      height: 5.5rem;
+      margin: 0 auto 1.25rem;
+    }
+    .emblem-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      background: rgba(217, 119, 6, 0.2);
+      filter: blur(12px);
+    }
+    .emblem-img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      object-fit: cover;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(88, 28, 135, 0.4);
+      color: var(--purple);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      margin-bottom: 0.75rem;
+    }
+    .badge-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 9999px;
+      background: var(--purple);
+      box-shadow: 0 0 8px var(--purple);
+    }
+    h1 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.85rem;
+      color: var(--amber-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    p, li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    ul {
+      list-style-position: inside;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 520px) {
+      .nav-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: rgba(217, 119, 6, 0.4);
+      transform: translateY(-2px);
+    }
+    .nav-link-title {
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-link-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    a.footer-link {
+      color: var(--amber);
+      text-decoration: none;
+    }
+    a.footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-card">
+      <div class="emblem-wrapper">
+        <div class="emblem-glow"></div>
+        <img src="icon-192.png" alt="Gothic Lunar Emblem" class="emblem-img">
+      </div>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>The Sanctuary // Portal</span>
+      </div>
+      <h1>Blood Is Not The Enemy</h1>
+      <p class="subtitle">
+        Atmospheric cycle telemetry, comfort flares, and gothic partner care. No pastel clichés. No corporate fluff.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>The Sanctuary // Hearth</h2>
+      <p>
+        A cold, dark-minimalist haven to log cycle starts, forecast lunar phases, and dispatch comfort directives without pink banners or algorithmic judgment.
+      </p>
+      <ul>
+        <li><strong>Minimalist Telemetry:</strong> Period onset logging, bleed duration history, and luteal variance tracking.</li>
+        <li><strong>Zero Data Exploitation:</strong> Your cycle is sacred rhythm, not ad revenue. We never sell or monetize reproductive data.</li>
+        <li><strong>Offline-First:</strong> Telemetry logs securely on your device even in complete radio silence.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>The Flamebearer // Protective Telemetry</h2>
+      <p>
+        For the partner who bears the flame. Never ask awkward questions or guess what is needed.
+      </p>
+      <ul>
+        <li><strong>Orbital Link:</strong> Pair devices instantly via a 6-character private bond code or in-app QR scanner.</li>
+        <li><strong>Tactile Directives:</strong> Daily phase-specific rituals — Triage Dinner, Stock the Apothecary, Fortify the Bunker.</li>
+        <li><strong>Comfort Flares:</strong> Real-time distress signals (Cauldron & Heat, Dark Fuel, The Torment, Radio Silence, Coven Comfort) with instant acknowledgment: <em>"On It 🖤"</em>.</li>
+      </ul>
+    </div>
+
+    <div class="nav-grid">
+      <a href="privacy.html" class="nav-link">
+        <div class="nav-link-title">Privacy Covenant 🖤</div>
+        <div class="nav-link-desc">Review our zero-brokerage data protection covenants & store disclosures.</div>
+      </a>
+      <a href="deletion.html" class="nav-link">
+        <div class="nav-link-title">Account Deletion ⚠️</div>
+        <div class="nav-link-desc">Instructions for instant self-serve telemetry purges and account erasure.</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Support & Inquiries</h2>
+      <p>
+        For technical assistance, bug reports, or manual account erasure verification, contact our sanctuary engineering team directly:
+      </p>
+      <p style="margin-top: 0.6rem;">
+        <strong>Direct Contact:</strong> <a href="mailto:privacy@geysimonyan.com" style="color: var(--amber); text-decoration: none;">privacy@geysimonyan.com</a>
+      </p>
+    </div>
+
+    <div class="footer">
+      <div>Blood Is Not The Enemy &bull; Version 1.0</div>
+      <div>Bear the flame. Guard the hearth. 🖤</div>
+    </div>
+  </div>
+</body>
+</html>
